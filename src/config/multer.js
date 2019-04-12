@@ -13,7 +13,7 @@ module.exports = {
                 if (err) cb(err);
                 file.key = `${hash.toString('hex')}-${file.originalname}`;
 
-                cb(null,file.key)
+                cb(null, file.key)
             })
         }
     })

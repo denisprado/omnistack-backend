@@ -18,8 +18,6 @@ class FileController {
         
         return res.json(file)
         // Criar arquivo
-
-        return res.send("ok");
     }
 }
 
