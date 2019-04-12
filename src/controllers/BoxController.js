@@ -15,6 +15,11 @@ class BoxController {
         });
         return res.json(box)
     }
+    
+    async list(req, res){
+        const box = await Box.find(req.params.title)
+        return res.json(box)
+    }
 }
 
 module.exports = new BoxController();
