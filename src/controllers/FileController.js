@@ -15,12 +15,10 @@ class FileController {
         await box.save()
 
         req.io.sockets.in(box._id).emit('file', file)
-        
+
         return res.json(file)
         // Criar arquivo
-
-        return res.send("ok");
     }
 }
 
-module.exports = new FileController
+module.exports = new FileController();

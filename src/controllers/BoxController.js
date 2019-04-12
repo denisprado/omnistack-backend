@@ -12,4 +12,4 @@ class BoxController {
     }
 }
 
-module.exports = new BoxController
+module.exports = new BoxController();
