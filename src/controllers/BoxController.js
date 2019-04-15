@@ -20,6 +20,11 @@ class BoxController {
         const box = await Box.find(req.params.title)
         return res.json(box)
     }
+    
+    async remove(req, res){
+        const box = await Box.remove(req.params.id);
+        return res.json(box)
+    }
 }
 
 module.exports = new BoxController();
