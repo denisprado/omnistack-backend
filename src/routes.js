@@ -3,7 +3,8 @@ const multer = require('multer')
 const multerConfig = require('./config/multer')
 const routes = express.Router()
 
-require('./app/controllers/index')
+const BoxController = require('./controllers/BoxController')
+const FileController = require('./controllers/FileController')
 
 routes.get("/", (req, res) => {
     res.send("Hello World")
