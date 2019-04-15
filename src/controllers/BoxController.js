@@ -22,6 +22,7 @@ class BoxController {
     }
     
     async remove(req, res){
+        console.log(req.body._id)
         const box = await Box.remove({_id: req.body._id});
         return res.json(box.deletedCount)
     }
