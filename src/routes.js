@@ -12,7 +12,7 @@ routes.get("/", (req, res) => {
 
 routes.post("/boxes", BoxController.store);
 routes.get("/boxes", BoxController.list);
-routes.delete("/boxes/:id", BoxController.remove);
+routes.delete("/boxes", BoxController.remove);
 routes.get("/boxes/:id", BoxController.show);
 routes.post("/boxes/:id/files",
     multer(multerConfig).single('file'),

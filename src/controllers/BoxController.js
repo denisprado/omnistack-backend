@@ -22,7 +22,7 @@ class BoxController {
     }
     
     async remove(req, res){
-        const box = await Box.remove({id: req.body.id});
+        const box = await Box.remove({_id: req.body._id});
         return res.json(box)
     }
 }
