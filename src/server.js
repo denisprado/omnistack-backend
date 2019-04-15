@@ -7,6 +7,8 @@ const app = express();
 
 app.use(cors())
 
+require('./controllers/AuthController')(App)
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
