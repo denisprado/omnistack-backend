@@ -30,6 +30,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./app/controllers/AuthController')(app)
+require('./app/controllers/ProjectController')(app)
 
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
 
