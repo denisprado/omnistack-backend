@@ -14,11 +14,17 @@ function generateToken(params = {}) {
     })
 }
 
-router.get('/list'), async (req, res) => {
-    const user = await User.find()
-    return res.send({user}) 
-    console.log("Users: "+user)
-}
+router.get('/list', function (req, res) {
+    User.find({}, function (err, users) {
+        var userMap = {};
+
+        users.forEach(function (user) {
+            userMap[user._id] = { user };
+        });
+
+        res.send({ userMap });
+    }).select('+password');
+});
 
 
 router.post('/register', async (req, res) => {
@@ -31,7 +37,7 @@ router.post('/register', async (req, res) => {
 
         user.password = undefined;
 
-        return res.send({ user, token: generateToken({ id: user.id })  })
+        return res.send({ user, token: generateToken({ id: user.id }) })
     } catch (err) {
         return res.status(400).send({ error: "Registration failed" })
     }
