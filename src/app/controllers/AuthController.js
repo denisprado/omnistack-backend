@@ -17,6 +17,7 @@ function generateToken(params = {}) {
 router.get('/list'), async (req, res) => {
     const user = await User.find()
     return res.send({user}) 
+    console.log("Users: "+user)
 }
 
 
