@@ -14,6 +14,11 @@ function generateToken(params = {}) {
     })
 }
 
+router.get('/list'), async (req, res) => {
+    const user = await User.find()
+    return res.send({user})
+}
+
 
 router.post('/register', async (req, res) => {
     const { email } = req.body;

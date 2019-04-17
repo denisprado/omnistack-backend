@@ -4,7 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-
 const app = express();
 
 app.use(cors())
@@ -27,11 +26,8 @@ app.use((req, res, next) => {
     return next();
 })
 
-
-app.use(express.json())
 app.use(bodyParser.json())
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./app/controllers/AuthController')(app)
 
