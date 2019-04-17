@@ -7,9 +7,6 @@ const app = express();
 
 app.use(cors())
 
-require('./app/controllers/AuthController')(App)
-require('./app/controllers/ProjectController')(App)
-
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -28,10 +25,9 @@ app.use((req, res, next) => {
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
+
 app.use(require('./routes'))
 
-require('./app/controllers/index')(app)
 
 server.listen(process.env.PORT || 3333)

@@ -3,12 +3,8 @@ const multer = require('multer')
 const multerConfig = require('./config/multer')
 const routes = express.Router()
 
-const BoxController = require('./controllers/BoxController')
-const FileController = require('./controllers/FileController')
-
-routes.get("/", (req, res) => {
-    res.send("Hello World")
-})
+const BoxController = require('./app/controllers/BoxController')
+const FileController = require('./app/controllers/FileController')
 
 routes.post("/boxes", BoxController.store);
 routes.get("/boxes", BoxController.list);

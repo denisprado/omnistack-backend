@@ -15,16 +15,15 @@ class BoxController {
         });
         return res.json(box)
     }
-    
-    async list(req, res){
+
+    async list(req, res) {
         const box = await Box.find(req.params.title)
         return res.json(box)
     }
-    
-    async remove(req, res){
-        console.log(req.body._id)
-        const box = await Box.remove({_id: req.body._id});
-        return res.json(box.deletedCount)
+
+    async remove(req, res) {
+        const box = await Box.remove({ _id: req.body._id });
+        return res.json(box)
     }
 }
 
